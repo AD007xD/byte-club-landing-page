@@ -1,30 +1,38 @@
-// This script requires jQuery and jquery-form plugin
-// You can use these ones from Cloudflare CDN:
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
-//
-$("#bootstrapForm").submit(function (event) {
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("bootstrapForm");
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    var emailInput = $("#376013449");
-    var email = emailInput.val();
-    if (!email.toLowerCase().endsWith("@sastra.ac.in")) {
-        alert(
-            "Please enter a valid SASTRA email address ending with @sastra.ac.in"
-        );
-        return;
+    // Validate SASTRA email
+    const emailInput = document.getElementById("376013449");
+    if (
+      emailInput &&
+      !emailInput.value.toLowerCase().endsWith("@sastra.ac.in")
+    ) {
+      alert("Please enter a valid SASTRA email address ending with @sastra.ac.in");
+      return;
     }
 
-    var extraData = {};
-    $("#bootstrapForm").ajaxSubmit({
-        data: extraData,
-        dataType: "jsonp", // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
-        error: function () {
-            // Submit of form should be successful but JSONP callback will fail because Google Forms
-            // does not support it, so this is handled as a failure.
-            alert("Your form has been submitted");
-            // You can also redirect the user to a custom thank-you page:
-            window.location.href = "index.html";
-        },
-    });
+    // Build URL-encoded body exactly as Google expects
+    const body = new URLSearchParams(new FormData(form));
+
+    try {
+      const r = await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body
+      });
+
+      if (r.ok) {
+        window.location.href = "/thankyou.html";
+
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (e) {
+      alert("Network error. Please try again.");
+    }
+  });
 });
