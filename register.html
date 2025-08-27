@@ -1,129 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="register.css" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.cdnfonts.com/css/minecraft-3"
-        />
-        <title>Register for Hackathon</title>
-    </head>
-    <body>
-        <div class="header">
-            <div>
-                <a href="https://byte-club-landing-page.vercel.app/">
-                <img src="byte club logo.png" alt="logo" id="logo_image" />
-                </a>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register.css" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/minecraft-3" />
+    <title>Register for Hackathon</title>
+  </head>
+  <body>
+    <!-- Header: logo + title side-by-side, centered above the form -->
+    <div class="form-wrapper">
+    <div class="header">
+      <a href="https://byte-club-landing-page.vercel.app/">
+        <img src="byte club logo.png" alt="logo" id="logo_image" />
+      </a>
+      <h2 class="form-title">REGISTER FOR ORIENTATION</h2>
+    </div>
 
-            <div class="header-name">
-                
-            </div>
+    <!-- IMPORTANT: No direct Google Forms action.
+         JS will POST to /api/submit (your Vercel serverless function). -->
+    <form id="bootstrapForm" method="POST">
+      <!-- (Kept) Heading inside form removed to avoid duplicate titles -->
+
+      <!-- Field type: "short" id: "1852052372" -->
+      <fieldset>
+        <legend for="1852052372">Name</legend>
+        <div class="form-group">
+          <input
+            id="1683762642"
+            type="text"
+            name="entry.1683762642"
+            class="form-control"
+            required
+          />
         </div>
-        <form
-            action="https://docs.google.com/forms/d/e/1FAIpQLScJzDctTVHa4Bzkz0FuygNDiQ-ifXyhnozBQGVrrHVKqGVD9Q/formResponse"
-            id="bootstrapForm"
-            method="POST"
-        >
-            <fieldset>
-                
-                <h2>Register for<br>orientation<br /><small></small></h2>
-            </fieldset>
+      </fieldset>
 
-            <!-- Field type: "short" id: "1852052372" -->
-            <fieldset>
-                <legend for="1852052372">Name</legend>
-                <div class="form-group">
-                    <input
-                        id="1683762642"
-                        type="text"
-                        name="entry.1683762642"
-                        class="form-control"
-                        required
-                    />
-                </div>
-            </fieldset>
+      <!-- Field type: "short" id: "397745798" -->
+      <fieldset>
+        <legend for="397745798">Register No.</legend>
+        <div class="form-group">
+          <input
+            id="1531155486"
+            type="number"
+            name="entry.1531155486"
+            class="form-control"
+            required
+          />
+        </div>
+      </fieldset>
 
-            <!-- Field type: "short" id: "397745798" -->
-            <fieldset>
-                <legend for="397745798">Register No.</legend>
-                <div class="form-group">
-                    <input
-                        id="1531155486"
-                        type="number"
-                        name="entry.1531155486"
-                        class="form-control"
-                        required
-                    />
-                </div>
-            </fieldset>
+      <!-- Field type: "short" id: "2071291846" -->
+      <fieldset>
+        <legend for="2071291846">SASTRA Mail ID</legend>
+        <div class="form-group">
+          <input
+            id="376013449"
+            type="text"
+            name="entry.376013449"
+            class="form-control"
+            required
+          />
+        </div>
+      </fieldset>
 
-            <!-- Field type: "short" id: "2071291846" -->
-            <fieldset>
-                <legend for="2071291846">SASTRA Mail ID</legend>
-                <div class="form-group">
-                    <input
-                        id="376013449"
-                        type="text"
-                        name="entry.376013449"
-                        class="form-control"
-                        required
-                    />
-                </div>
-            </fieldset>
+      <!-- Field type: "short" id: "81797447" -->
+      <fieldset>
+        <legend for="81797447">Branch</legend>
+        <div class="form-group">
+          <input
+            id="880220945"
+            type="text"
+            name="entry.880220945"
+            class="form-control"
+            required
+          />
+        </div>
+      </fieldset>
 
-            <!-- Field type: "short" id: "81797447" -->
-            <fieldset>
-                <legend for="81797447">Branch</legend>
-                <div class="form-group">
-                    <input
-                        id="880220945"
-                        type="text"
-                        name="entry.880220945"
-                        class="form-control"
-                        required
-                    />
-                </div>
-            </fieldset>
+      <!-- Field type: "short" id: "1853255043" -->
+      <fieldset>
+        <legend for="1853255043">Mobile Number</legend>
+        <div class="form-group">
+          <input
+            id="1521363166"
+            type="number"
+            name="entry.1521363166"
+            class="form-control"
+            required
+          />
+        </div>
+      </fieldset>
 
-            <!-- Field type: "short" id: "1853255043" -->
-            <fieldset>
-                <legend for="1853255043">Mobile Number</legend>
-                <div class="form-group">
-                    <input
-                        id="1521363166"
-                        type="number"
-                        name="entry.1521363166"
-                        class="form-control"
-                        required
-                    />
-                </div>
-            </fieldset>
+      <!-- Keep Google hidden fields; JS forwards them server-side -->
+      <input type="hidden" name="fvv" value="1" />
+      <input type="hidden" name="fbzx" value="4705739425350172128" />
+      <input type="hidden" name="pageHistory" value="0" />
 
-            <input type="hidden" name="fvv" value="1" />
-            <input type="hidden" name="fbzx" value="4705739425350172128" />
-            <!--
-        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
-        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
-        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
-        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
-    -->
-            <input type="hidden" name="pageHistory" value="0" />
+      <input class="btn btn-primary" type="submit" value="Submit" />
+    </form>
 
-            <input class="btn btn-primary" type="submit" value="Submit" />
-        </form>
-    </body>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"
-        integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA="
-        crossorigin="anonymous"
-    ></script>
+    <!-- Remove jQuery; use our tiny script -->
     <script src="script.js"></script>
+  </body>
 </html>
+
