@@ -1,141 +1,145 @@
+/* Page layout */
 body {
-    background-color: #0d0208;
-    color: #00ff41;
-    font-family: "Courier New", Courier, monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+  background-color: #0d0208;
+  color: #00ff41;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;         /* stack header over form */
+  align-items: center;            /* center the whole block */
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 12px;
 }
 
+/* Wrapper so header and form align perfectly */
+.form-wrapper {
+  width: 100%;
+  max-width: 500px;               /* same width as form */
+  margin: 0 auto;
+}
+
+/* Header: logo left, title right, centered as a unit */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;        /* center pair within wrapper */
+  gap: 0.75rem;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  font-family: "Minecraft", monospace;
+}
+
+/* Make whole logo clickable without blue styles */
+.header a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Logo size (responsive, never huge) */
+#logo_image {
+  display: block;
+  height: clamp(40px, 6vw, 56px);
+  width: auto;
+}
+
+/* Title next to the logo */
+.form-title,
+.header h2 {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  font-size: clamp(1rem, 2.5vw + 0.4rem, 1.6rem);
+}
+
+/* ----- Form ----- */
 form {
-    background-color: #1a1a1a;
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid #00ff41;
-    box-shadow: 0 0 20px #00ff41;
-    max-width: 500px;
-    width: 100%;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #00ff41;
+  box-shadow: 0 0 20px #00ff41;
+  width: 100%;
+  max-width: 500px;
 }
 
 fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
+  border: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 legend {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    text-align: left;
-    width: 100%;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
 }
 
-.form-group {
-    margin-bottom: 1rem;
-}
+.form-group { margin-bottom: 1rem; }
 
 .form-control {
-    width: 100%;
-    background-color: transparent;
-    border: 1px solid #00ff41;
-    color: #00ff41;
-    padding: 0.5rem;
-    font-family: inherit;
-    box-sizing: border-box;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  padding: 0.5rem;
+  font-family: inherit;
+  box-sizing: border-box;
 }
 
 .form-control:focus {
-    outline: none;
-    box-shadow: 0 0 10px #00ff41;
+  outline: none;
+  box-shadow: 0 0 10px #00ff41;
 }
 
 .btn {
-    background-color: #00ff41;
-    color: #0d0208;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    display: block;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  background-color: #00ff41;
+  color: #0d0208;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .btn:hover {
-    background-color: #0d0208;
-    color: #00ff41;
-    border: 1px solid #00ff41;
+  background-color: #0d0208;
+  color: #00ff41;
+  border: 1px solid #00ff41;
 }
 
-h2 {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 2rem;
-}
+/* Remove unused/old header styles */
+.header-name { display: none; }
 
-.header-name {
-    position: relative;
-    top: 17.5px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin: 0 !important;
-}
-.header {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1.4;
-    color: white;
-    display: flex;
-    gap: 2vw;
-    font-family: "Minecraft", sans-serif;
-}
-
-#logo_image {
-    position: relative;
-    height: 65px;
-    left: 0.6rem;
-    top: 3rem;
-}
-
+/* Optional: socials (kept from your code) */
 .social-media {
-    position: relative;
-    z-index: 2;
-
-    display: flex; /* Establishes the flex container */
-    justify-content: center; /* Centers horizontally along the main axis */
-    align-items: center;
-    color: white;
-    font-size: 25px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
 }
 
-p {
-    font-weight: bold;
-    font-size: 1.8rem;
-    letter-spacing: 1.5px;
-}
-p1 {
-    font-family: "Violina", sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
+/* Optional text styles you had */
+p { font-weight: bold; font-size: 1.8rem; letter-spacing: 1.5px; }
+p1 { font-family: "Violina", sans-serif; font-weight: bold; font-size: 1rem; letter-spacing: 1px; }
+#club-desc { font-weight: bold; font-size: 1.5rem; margin-block: 2.5px; }
+#club-name { margin-block: 2.5px; }
+p3 { font-weight: lighter; font-size: 1.5rem; }
 
-#club-desc {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-block: 2.5px;
-}
-#club-name {
-    margin-block: 2.5px;
-}
-p3 {
-    font-weight: lighter;
-    font-size: 1.5rem;
+/* Small-screen tweak: tighten spacing */
+@media (max-width: 420px) {
+  .header { gap: 0.5rem; }
+  form { padding: 1.5rem; }
 }
