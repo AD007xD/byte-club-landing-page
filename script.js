@@ -5,6 +5,16 @@
 //
 $("#bootstrapForm").submit(function (event) {
     event.preventDefault();
+
+    var emailInput = $("#376013449");
+    var email = emailInput.val();
+    if (!email.toLowerCase().endsWith("@sastra.ac.in")) {
+        alert(
+            "Please enter a valid SASTRA email address ending with @sastra.ac.in"
+        );
+        return;
+    }
+
     var extraData = {};
     $("#bootstrapForm").ajaxSubmit({
         data: extraData,
